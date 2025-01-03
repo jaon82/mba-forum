@@ -1,3 +1,4 @@
+import { Question } from "../../enterprise/entities/question";
 import { IQuestionsRepository } from "../repositories/questions-repository";
 interface EditQuestionUseCaseRequest {
   authorId: string;
@@ -5,7 +6,9 @@ interface EditQuestionUseCaseRequest {
   title: string;
   content: string;
 }
-interface EditQuestionUseCaseResponse {}
+interface EditQuestionUseCaseResponse {
+  question: Question;
+}
 
 export class EditQuestionUseCase {
   constructor(private questionsRepository: IQuestionsRepository) {}
@@ -25,6 +28,8 @@ export class EditQuestionUseCase {
     question.title = title;
     question.content = content;
     await this.questionsRepository.save(question);
-    return {};
+    return {
+      question,
+    };
   }
 }
