@@ -1,4 +1,4 @@
-import { IAnswersRepository } from "../../repositories/answers-repository";
+import { IAnswersRepository } from "../repositories/answers-repository";
 import { AnswerQuestionUseCase } from "./answer-question";
 
 const fakeAnswersRepository: IAnswersRepository = {
